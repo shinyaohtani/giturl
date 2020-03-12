@@ -9,22 +9,20 @@
 #  and if -o is given, open urls in your browser.
 #
 
-if $PROGRAM_NAME == __FILE__
-  require 'optparse'
-  require 'giturl'
-  opt = OptionParser.new
-  opt.on('-o', '--open', 'Open the URL directly in your browser.') { |v| v }
-  opt.on('-v', '--verbose', 'Turn on verbose mode.') { |v| v }
-  params = {}
-  opt.parse!(ARGV, into: params)
+require 'optparse'
+require 'giturl'
+opt = OptionParser.new
+opt.on('-o', '--open', 'Open the URL directly in your browser.') { |v| v }
+opt.on('-v', '--verbose', 'Turn on verbose mode.') { |v| v }
+params = {}
+opt.parse!(ARGV, into: params)
 
-  ARGV.each do |arg|
-    if Giturl::Giturl.git_managed?(arg)
-      url = Giturl::Giturl.url(arg)
-      print "#{url}\n"
-      system("open #{url}") if params[:open]
-    elsif params[:verbose]
-      print "Not git-managed-dir:  #{arg}\n"
-    end
+ARGV.each do |arg|
+  if Giturl::Giturl.git_managed?(arg)
+    url = Giturl::Giturl.url(arg)
+    print "#{url}\n"
+    system("open #{url}") if params[:open]
+  elsif params[:verbose]
+    print "Not git-managed-dir:  #{arg}\n"
   end
 end
