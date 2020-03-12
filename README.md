@@ -30,12 +30,15 @@ Here is a example to open GitHub web page for current directory:
 ```sh
 $ git clone git@github.com:shinyaohtani/giturl.git
 $ cd giturl/lib/giturl/
+
 # (working here)
-# (some editing. like vim version.rb......)
+# (some editing, like vim version.rb......)
 # (then you want to access the GitHub web page for current dir.)
+
 $ giturl -o .
 https://github.com/shinyaohtani/giturl/tree/master/lib/giturl/
-# and your default browser automatically opens the URL
+
+# == your default browser automatically opens the URL ==
 ```
 
 ## Contributing
