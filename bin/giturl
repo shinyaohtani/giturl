@@ -6,24 +6,25 @@
 #  giturl.rb [-o or --open] dir1 [dir2, dir3, ...]
 # output
 #  <url of dir1> [<url of dir2>, <url of dir3>, ...]
-#  and if -o is given, open urls on a browser.
+#  and if -o is given, open urls in your browser.
 #
 
-require 'optparse'
-opt = OptionParser.new
-opt.on('-o', '--open', 'Open corresponding URLs with your browser.') { |v| v }
-params = {}
-opt.parse!(ARGV, into: params)
+if $PROGRAM_NAME == __FILE__
+  require 'optparse'
+  require 'giturl'
+  opt = OptionParser.new
+  opt.on('-o', '--open', 'Open the URL directly in your browser.') { |v| v }
+  opt.on('-v', '--verbose', 'Turn on verbose mode.') { |v| v }
+  params = {}
+  opt.parse!(ARGV, into: params)
 
-ARGV.each do |arg|
-  remote_origin_url = `git -C #{arg} config --get remote.origin.url`.chomp
-  # remote_origin_url:  git@github.com:shinyaohtani/giturl.git
-  baseurl = remote_origin_url.gsub(/:/, '/').gsub(/^.*@/, 'https://').gsub(/\.git$/, '')
-
-  gitdir_prefix = `git -C #{arg} rev-parse --show-prefix`.chomp
-  gitdir_branch = `git -C #{arg} rev-parse --abbrev-ref HEAD`.chomp
-  url = "#{baseurl}/tree/#{gitdir_branch}/#{gitdir_prefix}"
-
-  print "#{url}\n"
-  system("open #{url}") if params[:open]
+  ARGV.each do |arg|
+    if Giturl::Giturl.git_managed?(arg)
+      url = Giturl::Giturl.url(arg)
+      print "#{url}\n"
+      system("open #{url}") if params[:open]
+    elsif params[:verbose]
+      print "Not git-managed-dir:  #{arg}\n"
+    end
+  end
 end
