@@ -17,7 +17,8 @@ opt.parse!(ARGV, into: params)
 
 ARGV.each do |arg|
   remote_origin_url = `git -C #{arg} config --get remote.origin.url`.chomp
-  baseurl = remote_origin_url.gsub(/^.*@/, '').gsub(/\.git$/, '').gsub(/:/, '/').gsub(/^/, 'https://')
+  # remote_origin_url:  git@github.com:shinyaohtani/giturl.git
+  baseurl = remote_origin_url.gsub(/:/, '/').gsub(/^.*@/, 'https://').gsub(/\.git$/, '')
 
   gitdir_prefix = `git -C #{arg} rev-parse --show-prefix`.chomp
   gitdir_branch = `git -C #{arg} rev-parse --abbrev-ref HEAD`.chomp
