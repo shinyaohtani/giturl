@@ -16,7 +16,7 @@ gem 'giturl'
 
 ## Usage
 
-If you have it installed, you can use `giturl` as follows:
+You can use `giturl` as follows:
 
     giturl [-o or --open] dir1 [dir2, dir3, ...]
 
