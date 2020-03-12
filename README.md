@@ -1,35 +1,43 @@
-# Giturl
+# giturl
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/giturl`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome to giturl!  Do you often want to access the GitHub web page from the terminal you are working on? You can use `giturl` to display the URL corresponding to the git-managed directory given as an argument, and open the URL directly in your browser if needed. `giturl` is a simple command. you can easily use from now on.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Install `giturl` yourself as:
+
+    $ gem install giturl
+
+Or add `giturl` to your application's Gemfile and run `bundle` command:
 
 ```ruby
 gem 'giturl'
 ```
 
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install giturl
-
 ## Usage
 
-TODO: Write usage instructions here
+If you have it installed, you can use `giturl` as follows:
 
-## Development
+    giturl [-o or --open] dir1 [dir2, dir3, ...]
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+Then you will get a list of URLs:
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+    URL1 [URL2, URL3, ...] (one URL for each line)
+
+and if `--open` is given, open the URLs on your browser.
+Here is a example to open GitHub web page for current directory:
+
+```sh
+$ git clone git@github.com:shinyaohtani/giturl.git
+$ cd giturl/lib/giturl/
+# (working here)
+# (some editing. like vim version.rb......)
+# (then you want to access the GitHub web page for current dir.)
+$ giturl -o .
+https://github.com/shinyaohtani/giturl/tree/master/lib/giturl/
+# and your default browser automatically opens the URL
+```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/giturl.
+Bug reports and pull requests are welcome on GitHub at https://github.com/shinyaohtani/giturl

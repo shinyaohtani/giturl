@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Show or open GitHub URL for given directory}
   spec.description   = %q{Show or open GitHub URL for given directory}
-  spec.homepage      = "https://shinya-ohtani.hatenadiary.org"
+  spec.homepage      = "https://github.com/shinyaohtani/giturl"
 
   #:spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
 
@@ -27,6 +27,6 @@ Gem::Specification.new do |spec|
   spec.executables   = ["giturl"]
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "bundler", "~> 2.0"
-  spec.add_development_dependency "rake", ">= 12.3.3"
+  #spec.add_development_dependency "bundler", "~> 2.0"
+  #spec.add_development_dependency "rake", ">= 12.3.3"
 end
