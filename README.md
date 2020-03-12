@@ -4,7 +4,7 @@ Welcome to giturl!  Do you often want to access the GitHub web page from the ter
 
 ## Installation
 
-Install `giturl` yourself as:
+Install `giturl` as:
 
     $ gem install giturl
 
