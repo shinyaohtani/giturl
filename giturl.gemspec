@@ -7,7 +7,7 @@ require 'giturl/version'
 Gem::Specification.new do |spec|
   spec.name          = 'giturl'
   spec.version       = Giturl::VERSION
-  spec.authors       = ['shinyaohtani']
+  spec.authors       = ['Shinya Ohtani (shinyaohtani@github)']
   spec.email         = ['shinya_ohtani@yahoo.co.jp']
 
   spec.homepage      = 'https://github.com/shinyaohtani/giturl'
@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
 
   spec.metadata['homepage_uri'] = spec.homepage
   spec.metadata['source_code_uri'] = 'https://github.com/shinyaohtani/giturl'
-  spec.metadata['changelog_uri'] = 'https://github.com/shinyaohtani/giturl/blob/master/README.md'
+  spec.metadata['changelog_uri'] = 'https://github.com/shinyaohtani/giturl/blob/master/CHANGELOG.md'
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
