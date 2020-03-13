@@ -40,6 +40,9 @@ https://github.com/shinyaohtani/giturl/tree/master/lib/giturl/
 
 # == your default browser automatically opens the URL ==
 ```
+## Changelog
+
+Refer to [Changelog.md](./CHANGELOG.md)
 
 ## Contributing
 
