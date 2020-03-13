@@ -11,9 +11,10 @@ Gem::Specification.new do |spec|
   spec.email         = ['shinya_ohtani@yahoo.co.jp']
 
   spec.homepage      = 'https://github.com/shinyaohtani/giturl'
-  spec.summary       = 'Show or open GitHub URL for given directory'
+  spec.license       = 'MIT'
+  spec.summary       = 'Show or open GitHub URL for your local directory'
   spec.description   = <<~DESCRIPTION
-    Show or open GitHub URL for given directory.
+    Show or open GitHub URL for your local directory.
     You can use giturl to display the URL corresponding to the git-managed directory given as an argument, and you can open the URL directly in your browser if needed.
   DESCRIPTION
 
