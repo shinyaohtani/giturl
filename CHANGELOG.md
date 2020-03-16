@@ -1,5 +1,14 @@
 # Changelog
 
+## [v1.1.3](https://github.com/shinyaohtani/giturl/tree/v1.1.3) (2020-03-16)
+
+[Full Changelog](https://github.com/shinyaohtani/giturl/compare/v1.1.2...v1.1.3)
+
+**Implemented enhancements:**
+
+- Improved README.md so that you can understand what `giturl` is immediately
+- Improved description for `--help` and `--version` options
+
 ## [v1.1.2](https://github.com/shinyaohtani/giturl/tree/v1.1.2) (2020-03-13)
 
 [Full Changelog](https://github.com/shinyaohtani/giturl/compare/v1.1.1...v1.1.2)
