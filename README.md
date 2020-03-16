@@ -1,30 +1,41 @@
-# giturl
+# Welcome to giturl !
 
-Welcome to giturl!  Do you often want to access the GitHub web page from the terminal you are working on? You can use `giturl` to display the URL corresponding to the git-managed directory given as an argument, and open the URL directly in your browser if needed. `giturl` is a simple command. you can easily use from now on.
+## What is giturl?
 
-## Installation
+`giturl` is a helper for accessing GitHub web pages. Do you often want to access the GitHub web page from the terminal you are working on? You can use `giturl` to display the URL corresponding to the git-managed directory given as an argument. If you want to open the URL in a browser immediately, you can specify the `girurl` option to open the URL in the browser without operating the browser. `giturl` is a simple command. you can easily use from now on.
 
-Install `giturl` as:
+You can use `giturl` like:
 
-    $ gem install giturl
+```sh
+$ giturl .
+https://github.com/shinyaohtani/giturl/tree/master/lib/giturl/
+```
 
-Or add `giturl` to your application's Gemfile and run `bundle` command:
+and `--open`, or simply `-o` option is given, your browser opens the URLs
 
-```ruby
-gem 'giturl'
+```sh
+$ giturl -o .
+https://github.com/shinyaohtani/giturl/tree/master/lib/giturl/
+# == your default browser automatically opens the URL ==
 ```
 
 ## Usage
 
-You can use `giturl` as follows:
-
-    giturl [-o or --open] dir1 [dir2, dir3, ...]
+    giturl [-o or --open] [-v or --verbose]  dir1 [dir2, dir3, ...]
 
 Then you will get a list of URLs:
 
     URL1 [URL2, URL3, ...] (one URL for each line)
 
-and if `--open` is given, open the URLs on your browser.
+If `--verbose` is specified, print warnings for non-git-managed dirs:
+
+```sh
+$ giturl -v ~
+Not git-managed-dir:  /Users/myhome
+```
+
+## Usecase
+
 Here is a example to open GitHub web page for current directory:
 
 ```sh
@@ -40,6 +51,19 @@ https://github.com/shinyaohtani/giturl/tree/master/lib/giturl/
 
 # == your default browser automatically opens the URL ==
 ```
+
+## Installation
+
+Install `giturl` as:
+
+    $ gem install giturl
+
+Or add `giturl` to your application's Gemfile and run `bundle` command:
+
+```ruby
+gem 'giturl'
+```
+
 ## Changelog
 
 Refer to [Changelog.md](./CHANGELOG.md)
