@@ -7,13 +7,13 @@ require 'giturl'
 params = {}
 OptionParser.new do |opts|
   opts.version = Giturl::VERSION
-  opts.on('-o', '--[no-]open',    'Open the URL directly in your browser. default: no') { |v| v }
-  opts.on('-v', '--[no-]verbose', 'Verbose mode. default: no') { |v| v }
-  opts.on_tail('-h', '--help',    'Show this message') do
+  opts.on('-o', '--open', 'Open the URL directly in your browser. default: no') { |v| v }
+  opts.on('--verbose', 'Verbose mode. default: no') { |v| v }
+  opts.on_tail('-h', '--help', 'Show this message') do
     puts opts
     exit
   end
-  opts.on_tail('--version', 'Show version') do
+  opts.on_tail('-v', '--version', 'Show version') do
     puts opts.ver
     exit
   end
