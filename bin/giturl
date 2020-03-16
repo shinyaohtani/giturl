@@ -20,7 +20,9 @@ OptionParser.new do |opts|
   opts.banner = <<~BANNER
 
     #{opts.ver}
-    A tiny utility to show and open GitHub URL for your local directory.
+    A tiny utility that displays and opens GitHub URLs for your local directory.
+      visit: https://github.com/shinyaohtani/giturl
+
     Usage: #{opts.program_name} [options] [dirs]
      [options] are:
   BANNER
