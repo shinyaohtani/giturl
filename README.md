@@ -2,7 +2,7 @@
 
 ## What is giturl?
 
-`giturl` is a helper for accessing GitHub web pages. Do you often want to access the GitHub web page from your terminal you are working on? You can use `giturl` to display the URL corresponding to the git-managed directory given as an argument. If you want to open the URL in a browser immediately, you can specify the `girurl` option to open the URL in the browser without operating the browser. `giturl` is a simple command. you can easily use from now on.
+`giturl` is a helper for accessing GitHub web pages. Have you ever wanted to access a GitHub web page while working on a git-cloned local directory? You can use `giturl` to display the URL corresponding to the git-managed directory given as an argument. If you want to access the URL in a browser immediately, you can specify the `girurl` option to open the URL in the browser without operating the browser. `giturl` is a simple command. you can easily use from now on.
 
 You can use `giturl` like:
 
