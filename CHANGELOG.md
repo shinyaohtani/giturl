@@ -1,5 +1,15 @@
 # Changelog
 
+## [v1.1.4](https://github.com/shinyaohtani/giturl/tree/v1.1.4) (2020-03-16)
+
+[Full Changelog](https://github.com/shinyaohtani/giturl/compare/v1.1.3...v1.1.4)
+
+**Implemented enhancements:**
+
+- Changed method name
+  - url to convert:  low level method. git-managed dir only
+  - safe_url to url: check if git-managed and convert to url
+
 ## [v1.1.3](https://github.com/shinyaohtani/giturl/tree/v1.1.3) (2020-03-16)
 
 [Full Changelog](https://github.com/shinyaohtani/giturl/compare/v1.1.2...v1.1.3)
