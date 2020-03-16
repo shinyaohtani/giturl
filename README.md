@@ -64,6 +64,19 @@ Or add `giturl` to your application's Gemfile and run `bundle` command:
 gem 'giturl'
 ```
 
+## Giturl module
+
+`Giturl` is also a module, so you can get urls from your ruby code.
+(*G*iturl is a name of module version of `giturl`)
+
+```ruby
+require 'giturl'
+
+path = './lib'
+url = Giturl::Giturl.url(path)
+p url unless url.nil?
+```
+
 ## Changelog
 
 Refer to [Changelog.md](./CHANGELOG.md)

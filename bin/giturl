@@ -8,12 +8,12 @@ params = {}
 OptionParser.new do |opts|
   opts.version = Giturl::VERSION
   opts.on('-o', '--open', 'Open the URL directly in your browser. default: no') { |v| v }
-  opts.on('--verbose', 'Verbose mode. default: no') { |v| v }
+  opts.on('-v', '--verbose', 'Verbose mode. default: no') { |v| v }
   opts.on_tail('-h', '--help', 'Show this message') do
     puts opts
     exit
   end
-  opts.on_tail('-v', '--version', 'Show version') do
+  opts.on_tail('--version', 'Show version') do
     puts opts.ver
     exit
   end
@@ -32,7 +32,7 @@ end
 
 ARGV.each do |arg|
   if Giturl::Giturl.git_managed?(arg)
-    url = Giturl::Giturl.url(arg)
+    url = Giturl::Giturl.convert(arg)
     print "#{url}\n"
     system("open #{url}") if params[:open]
   elsif params[:verbose]

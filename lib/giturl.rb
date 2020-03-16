@@ -9,8 +9,8 @@ module Giturl
     #
     # @param path [String] path to any directory. Both relative and absolute forms are accepted.
     # @return [String] GitHub web page URL. This returns nil if the path is NOT a git-managed dir.
-    def self.safe_url(path)
-      url(path) if git_managed?(path)
+    def self.url(path)
+      convert(path) if git_managed?(path)
     end
 
     # Check if the path is in the git-managed directory
@@ -30,7 +30,7 @@ module Giturl
     #
     # @param path [String] path for a git-managed directory. Both relative and absolute forms are accepted.
     # @return [String] GitHub web page URL for the given git-managed directory
-    def self.url(path)
+    def self.convert(path)
       gitdir_prefix = `git -C #{path} rev-parse --show-prefix`.chomp
       gitdir_branch = `git -C #{path} rev-parse --abbrev-ref HEAD`.chomp
       remote_origin_url = `git -C #{path} config --get remote.origin.url`.chomp
