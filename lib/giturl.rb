@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
+require 'giturl/version'
+
 module Giturl
   class Giturl
     def self.git_managed?(path)

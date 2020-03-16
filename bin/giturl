@@ -1,21 +1,32 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-#
-# usage
-#  giturl.rb [-o or --open] dir1 [dir2, dir3, ...]
-# output
-#  <url of dir1> [<url of dir2>, <url of dir3>, ...]
-#  and if -o is given, open urls in your browser.
-#
-
 require 'optparse'
 require 'giturl'
-opt = OptionParser.new
-opt.on('-o', '--open', 'Open the URL directly in your browser.') { |v| v }
-opt.on('-v', '--verbose', 'Turn on verbose mode.') { |v| v }
+
 params = {}
-opt.parse!(ARGV, into: params)
+OptionParser.new do |opts|
+  opts.version = Giturl::VERSION
+  opts.on('-o', '--[no-]open',    'Open the URL directly in your browser. default: no') { |v| v }
+  opts.on('-v', '--[no-]verbose', 'Verbose mode. default: no') { |v| v }
+  opts.on_tail('-h', '--help',    'Show this message') do
+    puts opts
+    exit
+  end
+  opts.on_tail('--version', 'Show version') do
+    puts opts.ver
+    exit
+  end
+  opts.banner = <<~BANNER
+
+    #{opts.ver}
+    A tiny utility to show and open GitHub URL for your local directory.
+    Usage: #{opts.program_name} [options] [dirs]
+     [options] are:
+  BANNER
+
+  opts.parse!(ARGV, into: params)
+end
 
 ARGV.each do |arg|
   if Giturl::Giturl.git_managed?(arg)
