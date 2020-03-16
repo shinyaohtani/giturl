@@ -5,6 +5,18 @@ require 'giturl/version'
 
 module Giturl
   class Giturl
+    # Check if path is a git-managed directory and return the URL of the GitHub web page for that path
+    #
+    # @param path [String] path to any directory. Both relative and absolute forms are accepted.
+    # @return [String] GitHub web page URL. This returns nil if the path is NOT a git-managed dir.
+    def self.safe_url(path)
+      url(path) if git_managed?(path)
+    end
+
+    # Check if the path is in the git-managed directory
+    #
+    # @param path [String] path to check. Both relative and absolute forms are accepted.
+    # @return [Boolean] git-managed directory or not.
     def self.git_managed?(path)
       stderr_old = $stderr.dup
       $stderr.reopen('/dev/null')
@@ -14,6 +26,10 @@ module Giturl
       inside == 'true'
     end
 
+    # Convert path to git-managed directory to GitHub web page URL
+    #
+    # @param path [String] path for a git-managed directory. Both relative and absolute forms are accepted.
+    # @return [String] GitHub web page URL for the given git-managed directory
     def self.url(path)
       gitdir_prefix = `git -C #{path} rev-parse --show-prefix`.chomp
       gitdir_branch = `git -C #{path} rev-parse --abbrev-ref HEAD`.chomp
@@ -23,10 +39,6 @@ module Giturl
       baseurl = remote_origin_url.gsub(/:/, '/').gsub(/^.*@/, 'https://').gsub(/\.git$/, '')
 
       "#{baseurl}/tree/#{gitdir_branch}/#{gitdir_prefix}"
-    end
-
-    def self.safe_url(path)
-      url(path) if git_managed?(path)
     end
   end
 end
