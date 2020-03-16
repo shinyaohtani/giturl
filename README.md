@@ -77,6 +77,8 @@ url = Giturl::Giturl.url(path)
 p url unless url.nil?
 ```
 
+See [code](./lib/giturl.rb)
+
 ## Changelog
 
 Refer to [Changelog.md](./CHANGELOG.md)
