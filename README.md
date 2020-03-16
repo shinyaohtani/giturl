@@ -23,7 +23,7 @@ https://github.com/shinyaohtani/giturl/tree/master/lib/giturl/
 
     giturl [-o or --open] [-v or --verbose]  dir1 [dir2, dir3, ...]
 
-Then you will get each URLs corresponding to the specified paths, one per line.
+Then you will get each URLs corresponding to the specified directories, one per line.
 If `--verbose` is specified, print warnings for non-git-managed dirs:
 
 ```sh
