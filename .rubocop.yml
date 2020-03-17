@@ -1,0 +1,33 @@
+# ** Default values of all configuration are written in**
+#  https://github.com/rubocop-hq/rubocop/blob/master/config/default.yml
+#
+# Detail examples of each configuration are
+#  https://rubocop.readthedocs.io/en/latest/cops_layout
+#
+# General guide-line is
+#  https://github.com/rubocop-hq/ruby-style-guide
+
+AllCops:
+  TargetRubyVersion: 2.5
+
+Layout/EndAlignment:
+  Enabled: true
+  EnforcedStyleAlignWith: start_of_line
+  AutoCorrect: true
+
+Layout/LineLength:
+  Enabled: true
+  AutoCorrect: false
+  Max: 120
+
+Style/HashEachMethods:
+  Enabled: true
+  AutoCorrect: true
+
+Style/HashTransformKeys:
+  Enabled: true
+  AutoCorrect: true
+
+Style/HashTransformValues:
+  Enabled: true
+  AutoCorrect: true

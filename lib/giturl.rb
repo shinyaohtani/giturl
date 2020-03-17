@@ -4,6 +4,9 @@
 require 'giturl/version'
 
 module Giturl
+  # Main class of `Giturl` module.
+  #
+  # `self.url` is recommended to get URL like: Giturl.url('./lib')
   class Giturl
     # Check if path is a git-managed directory and return the URL of the GitHub web page for that path
     #
