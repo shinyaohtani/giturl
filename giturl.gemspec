@@ -34,7 +34,9 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_development_dependency 'bundler', '~> 2.0'
+  spec.add_development_dependency 'github_changelog_generator', '>= 1.15.0'
   spec.add_development_dependency 'irb'
+  spec.add_development_dependency 'pry'
   spec.add_development_dependency 'rake', '>= 12.3.3'
   spec.add_development_dependency 'rubocop', '>= 0.80.1'
 end

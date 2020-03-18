@@ -8,13 +8,13 @@ params = {}
 OptionParser.new do |opts|
   opts.version = Giturl::VERSION
   opts.on('-o', '--open', 'Open the URL in your browser. default: no') { |v| v }
-  opts.on('-a VAL', '--app=VAL', 'Specify a browser. "Safari.app"') { |v| v }
+  opts.on('-a APPNAME', '--app=APPNAME', 'Specify a browser. "Safari.app"') { |v| v }
   opts.on('-v', '--verbose', 'Verbose mode. default: no') { |v| v }
   opts.on_tail('-h', '--help', 'Show this message') do
     puts opts
     exit
   end
-  opts.on_tail('--version', 'Show version') do
+  opts.on_tail('-V', '--version', 'Show version') do
     puts opts.ver
     exit
   end
@@ -36,8 +36,8 @@ ARGV.each do |arg|
     url = Giturl::Giturl.convert(arg)
     print "#{url}\n"
     if params[:open]
-      comm = "open #{url}"
-      comm << " -a #{params[:application]}" if params[:application]
+      comm = +"open #{url}"
+      comm << " -a #{params[:app]}" if params[:app]
       system(comm)
     end
   elsif params[:verbose]

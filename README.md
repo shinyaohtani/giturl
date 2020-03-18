@@ -21,14 +21,32 @@ https://github.com/shinyaohtani/giturl/tree/master/lib/giturl/
 
 ## Usage
 
-    giturl [-o or --open] [-v or --verbose]  dir1 [dir2, dir3, ...]
+```usage
+Usage: giturl [options] [dirs]
+ [options] are:
+    -o, --open                       Open the URL in your browser. default: no
+    -a, --app=APPNAME                Specify a browser. "Safari.app"
+    -v, --verbose                    Verbose mode. default: no
+    -h, --help                       Show this message
+    -V, --version                    Show version
+```
 
-Then you will get each URLs corresponding to the specified directories, one per line.
-If `--verbose` is specified, print warnings for non-git-managed dirs:
+You can specify several directories at once. If `--verbose` is specified, print warnings for non-git-managed dirs:
 
 ```sh
-$ giturl -v ~
+$ giturl --verbose ~
 Not git-managed-dir:  /Users/myhome
+```
+
+You can specify a browser to open:
+
+```sh
+### Chrome ###
+$ giturl --open --app="Google\ Chrome.app" .
+### Safari ###
+$ giturl --open --app="Safari.app" .
+### any other is ok ###
+$ giturl --open --app="/Applications/any_browser_you_have.app" .
 ```
 
 ## Usecase
