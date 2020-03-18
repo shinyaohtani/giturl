@@ -3,7 +3,9 @@
 
 require 'giturl/version'
 
+# converter module from path to url
 module Giturl
+  require 'erb'
   # Main class of `Giturl` module.
   #
   # `self.url` is recommended to get URL like: Giturl.url('./lib')
@@ -40,8 +42,10 @@ module Giturl
 
       # remote_origin_url:  git@github.com:shinyaohtani/giturl.git
       baseurl = remote_origin_url.gsub(/:/, '/').gsub(/^.*@/, 'https://').gsub(/\.git$/, '')
+      # gitdir_branch: feature/#1_user_named_branch
+      encoded_branch = gitdir_branch.split('/').map { |e| ERB::Util.url_encode(e) }.join('/')
 
-      "#{baseurl}/tree/#{gitdir_branch}/#{gitdir_prefix}"
+      "#{baseurl}/tree/#{encoded_branch}/#{gitdir_prefix}"
     end
   end
 end
