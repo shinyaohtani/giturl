@@ -51,7 +51,7 @@ $ giturl --open --app="/Applications/any_browser_you_have.app" .
 
 ## Usecase
 
-Here is an example to open GitHub web page for current directory:
+The following is an example of opening a GitHub web page for the current directory:
 
 ```sh
 $ git clone git@github.com:shinyaohtani/giturl.git
