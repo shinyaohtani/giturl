@@ -7,6 +7,9 @@
 # General guide-line is
 #  https://github.com/rubocop-hq/ruby-style-guide
 
+require:
+  - rubocop-rspec
+
 AllCops:
   TargetRubyVersion: 2.5
 
@@ -19,6 +22,15 @@ Layout/LineLength:
   Enabled: true
   AutoCorrect: false
   Max: 120
+
+Metrics/BlockLength:
+  Enabled: true
+  Max: 30
+  ExcludedMethods: ['describe', 'context']
+
+Metrics/MethodLength:
+  Enabled: true
+  Max: 30
 
 Style/HashEachMethods:
   Enabled: true
