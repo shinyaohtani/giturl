@@ -1,8 +1,22 @@
 # Changelog
 
-## [1.1.5](https://github.com/shinyaohtani/giturl/tree/1.1.5) (2020-03-18)
+## [v1.1.6](https://github.com/shinyaohtani/giturl/tree/v1.1.6) (2020-03-23)
 
-[Full Changelog](https://github.com/shinyaohtani/giturl/compare/v1.1.4...1.1.5)
+[Full Changelog](https://github.com/shinyaohtani/giturl/compare/v1.1.5...v1.1.6)
+
+**Implemented enhancements:**
+
+- Test code should be prepared [\#3](https://github.com/shinyaohtani/giturl/issues/3)
+
+**Merged pull requests:**
+
+- Feature/\#3 test code [\#9](https://github.com/shinyaohtani/giturl/pull/9) ([shinyaohtani](https://github.com/shinyaohtani))
+
+# Changelog
+
+## [v1.1.5](https://github.com/shinyaohtani/giturl/tree/v1.1.5) (2020-03-18)
+
+[Full Changelog](https://github.com/shinyaohtani/giturl/compare/v1.1.4...v1.1.5)
 
 **Implemented enhancements:**
 
