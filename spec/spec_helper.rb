@@ -97,4 +97,5 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 
   Dir[File.join(File.dirname(__FILE__), '../lib/**/*.rb')].sort.each { |f| require f }
+  require 'securerandom'
 end
