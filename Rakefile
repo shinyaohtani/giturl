@@ -9,7 +9,7 @@ GitHubChangelogGenerator::RakeTask.new :changelog do |config|
   config.user = 'shinyaohtani'
   config.project = 'giturl'
   config.base = 'CHANGELOG.md'
-  config.future_release = Giturl::VERSION
+  config.future_release = "v#{Giturl::VERSION}"
 end
 
 task default: :spec
