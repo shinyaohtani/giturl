@@ -23,13 +23,14 @@ Layout/LineLength:
   AutoCorrect: false
   Max: 120
 
+Metrics/BlockLength:
+  Enabled: true
+  Max: 30
+  ExcludedMethods: ['describe', 'context']
+
 Metrics/MethodLength:
   Enabled: true
   Max: 30
-
-Metrics/BlockLength:
-  Enabled: true
-  Max: 50
 
 Style/HashEachMethods:
   Enabled: true
