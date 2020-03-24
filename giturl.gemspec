@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Shinya Ohtani (shinyaohtani@github)']
   spec.email         = ['shinya_ohtani@yahoo.co.jp']
 
-  spec.homepage      = 'https://github.com/shinyaohtani/giturl'
+  spec.homepage      = 'https://github.com/shinyaohtani/giturl/blob/master/README.md'
   spec.license       = 'MIT'
   spec.summary       = 'Show or open GitHub URL for your local directory'
   spec.description   = <<~DESCRIPTION
