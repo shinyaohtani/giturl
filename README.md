@@ -54,7 +54,7 @@ If no directory is specified, the behavior is the same as when the current direc
 ```sh
 $ giturl -o .
 $ giturl .
-# are completely same as:
+#   These are completely same as:
 $ giturl -o
 $ giturl
 ```
