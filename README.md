@@ -59,7 +59,6 @@ $ giturl -o
 $ giturl
 ```
 
-
 ## Usecase
 
 The following is an example of opening a GitHub web page for the current directory:
