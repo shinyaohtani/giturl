@@ -52,11 +52,11 @@ $ giturl --open --app="/Applications/any_browser_you_have.app" .
 If no directory is specified, the behavior is the same as when the current directory is specified.
 
 ```sh
-$ giturl -o .
-$ giturl .
-#   These are completely same as:
 $ giturl -o
 $ giturl
+#   These are completely same as:
+$ giturl -o  .
+$ giturl  .
 ```
 
 ## Usecase
