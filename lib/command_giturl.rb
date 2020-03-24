@@ -40,6 +40,7 @@ module Giturl
     end
 
     def run
+      ARGV << '.' if ARGV.empty?
       ARGV.each do |arg|
         if Giturl.git_managed?(arg)
           url = Giturl.convert(arg)
