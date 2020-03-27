@@ -1,3 +1,4 @@
+[![Gem Version](https://badge.fury.io/rb/giturl.svg)](https://badge.fury.io/rb/giturl)
 # Welcome to giturl !
 
 ## What is giturl?
