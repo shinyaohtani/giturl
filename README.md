@@ -23,9 +23,12 @@ https://github.com/shinyaohtani/giturl/tree/master/lib/giturl/
 
 ```usage
 Usage: giturl [options] [dirs]
- [options] are:
+ [dirs]:
+   Target directories. Omit this when you only specify "."
+
+ [options]:
     -o, --open                       Open the URL in your browser. default: no
-    -a, --app=APPNAME                Specify a browser. "Safari.app"
+    -a, --app [APPNAME]              Specify a browser. i.e. "Safari.app"
     -v, --verbose                    Verbose mode. default: no
     -h, --help                       Show this message
     -V, --version                    Show version
@@ -48,6 +51,8 @@ $ giturl --open --app="Safari.app" .
 ### any other is ok ###
 $ giturl --open --app="/Applications/any_browser_you_have.app" .
 ```
+
+When you specify `--app`, you often forget to specify `--open` at the same time, but don't worry. If `--app` is specified and `--open` is forgotten, it automatically operates as if `--open` was specified.
 
 If no directory is specified, the behavior is the same as when the current directory is specified.
 

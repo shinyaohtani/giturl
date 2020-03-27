@@ -15,7 +15,7 @@ module Giturl
       OptionParser.new do |opts|
         opts.version = VERSION
         opts.on('-o', '--open', 'Open the URL in your browser. default: no') { |v| v }
-        opts.on('-a APPNAME', '--app=APPNAME', 'Specify a browser. "Safari.app"') { |v| v }
+        opts.on('-a [APPNAME]', '--app [APPNAME]', 'Specify a browser. i.e. "Safari.app"') { |v| v }
         opts.on('-v', '--verbose', 'Verbose mode. default: no') { |v| v }
         opts.on_tail('-h', '--help', 'Show this message') do
           puts opts
@@ -32,10 +32,14 @@ module Giturl
             visit: https://github.com/shinyaohtani/giturl
 
           Usage: #{opts.program_name} [options] [dirs]
-           [options] are:
+           [dirs]:
+             Target directories. Omit this when you only specify "."
+
+           [options]:
         BANNER
 
         opts.parse!(ARGV, into: @params)
+        @params[:open] = true if @params.keys.include?(:app)
       end
     end
 
