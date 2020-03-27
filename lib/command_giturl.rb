@@ -13,31 +13,7 @@ module Giturl
     def parse_options
       @params = {}
       OptionParser.new do |opts|
-        opts.version = VERSION
-        opts.on('-o', '--open', 'Open the URL in your browser. default: no') { |v| v }
-        opts.on('-a [APPNAME]', '--app [APPNAME]', 'Specify a browser. i.e. "Safari.app"') { |v| v }
-        opts.on('-v', '--verbose', 'Verbose mode. default: no') { |v| v }
-        opts.on_tail('-h', '--help', 'Show this message') do
-          puts opts
-          exit
-        end
-        opts.on_tail('-V', '--version', 'Show version') do
-          puts opts.ver
-          exit
-        end
-        opts.banner = <<~BANNER
-
-          #{opts.ver}
-          A tiny utility that displays and opens GitHub URLs for your local directory.
-            visit: https://github.com/shinyaohtani/giturl
-
-          Usage: #{opts.program_name} [options] [dirs]
-           [dirs]:
-             Target directories. Omit this when you only specify "."
-
-           [options]:
-        BANNER
-
+        opts = define_options(opts)
         opts.parse!(ARGV, into: @params)
         @params[:open] = true if @params.keys.include?(:app)
       end
@@ -58,6 +34,36 @@ module Giturl
           print "Not git-managed-dir:  #{arg}\n"
         end
       end
+    end
+
+    private
+
+    def define_options(opts)
+      opts.version = VERSION
+      opts.on('-o', '--open', 'Open the URL in your browser. default: no') { |v| v }
+      opts.on('-a [APPNAME]', '--app [APPNAME]', 'Specify a browser. i.e. "Safari.app"') { |v| v }
+      opts.on('-v', '--verbose', 'Verbose mode. default: no') { |v| v }
+      opts.on_tail('-h', '--help', 'Show this message') do
+        puts opts
+        exit
+      end
+      opts.on_tail('-V', '--version', 'Show version') do
+        puts opts.ver
+        exit
+      end
+      opts.banner = <<~BANNER
+
+        #{opts.ver}
+        A tiny utility that displays and opens GitHub URLs for your local directory.
+          visit: https://github.com/shinyaohtani/giturl
+
+        Usage: #{opts.program_name} [options] [dirs]
+         [dirs]:
+           Target directories. Omit this when you only specify "."
+
+         [options]:
+      BANNER
+      opts
     end
   end
 end
