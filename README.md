@@ -19,10 +19,7 @@ $ giturl -o .
 https://github.com/shinyaohtani/giturl/tree/master/lib/giturl/
 # == your default browser automatically opens the URL ==
 ```
-- The following operating systems support browser coordination:
-  - macOS
-  - Windows
-  - Linux
+Browser cooperation works on any OS of macOS, Windows and Linux.
 
 ## Usage
 
