@@ -23,6 +23,12 @@ Layout/LineLength:
   AutoCorrect: false
   Max: 120
 
+Lint/RaiseException:
+  Enabled: true
+
+Lint/StructNewOverride:
+  Enabled: true
+
 Metrics/BlockLength:
   Enabled: true
   Max: 30
