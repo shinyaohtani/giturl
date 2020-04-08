@@ -12,13 +12,17 @@ $ giturl .
 https://github.com/shinyaohtani/giturl/tree/master/lib/giturl/
 ```
 
-and `--open`, or simply `-o` option is given, your browser opens the URLs
+and `--open`, or simply `-o` option is given, your default browser opens the URLs
 
 ```sh
 $ giturl -o .
 https://github.com/shinyaohtani/giturl/tree/master/lib/giturl/
 # == your default browser automatically opens the URL ==
 ```
+- The following operating systems support browser coordination:
+  - macOS
+  - Windows
+  - Linux
 
 ## Usage
 
