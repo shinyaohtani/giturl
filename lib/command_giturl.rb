@@ -5,6 +5,7 @@
 module Giturl
   require 'optparse'
   require 'giturl'
+  require 'launchy'
 
   # command line wrapper
   class CommandGiturl
@@ -25,11 +26,7 @@ module Giturl
         if Giturl.git_managed?(arg)
           url = Giturl.convert(arg)
           print "#{url}\n"
-          if @params[:open]
-            comm = +"open #{url}"
-            comm << " -a #{@params[:app]}" if @params[:app]
-            system(comm)
-          end
+          browser_open(url) if @params[:open]
         elsif @params[:verbose]
           print "Not git-managed-dir:  #{arg}\n"
         end
@@ -64,6 +61,16 @@ module Giturl
          [options]:
       BANNER
       opts
+    end
+
+    def browser_open(url)
+      if @params[:app] && Launchy::Detect::HostOsFamily.detect.darwin?
+        comm = +"open #{url}"
+        comm << " -a #{@params[:app]}" if @params[:app]
+        system(comm)
+      else
+        Launchy.open(url)
+      end
     end
   end
 end
