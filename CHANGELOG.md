@@ -1,10 +1,25 @@
 # Changelog
 
+## [v1.3.0](https://github.com/shinyaohtani/giturl/tree/v1.3.0) (2020-04-08)
+
+[Full Changelog](https://github.com/shinyaohtani/giturl/compare/v1.2.1...v1.3.0)
+
+**Implemented enhancements:**
+
+- Support for Windows and Linux! [\#2](https://github.com/shinyaohtani/giturl/issues/2)
+
+**Merged pull requests:**
+
+- Feature/\#2 support windows linux [\#17](https://github.com/shinyaohtani/giturl/pull/17) ([shinyaohtani](https://github.com/shinyaohtani))
+- fixed an Abc warning from rubocop [\#16](https://github.com/shinyaohtani/giturl/pull/16) ([shinyaohtani](https://github.com/shinyaohtani))
+
+# Changelog
+
 ## [v1.2.1](https://github.com/shinyaohtani/giturl/tree/v1.2.1) (2020-03-27)
 
 [Full Changelog](https://github.com/shinyaohtani/giturl/compare/v1.2.0...v1.2.1)
 
-**Closed issues:**
+**Implemented enhancements:**
 
 - Open application even if --app alone without --open [\#13](https://github.com/shinyaohtani/giturl/issues/13)
 
