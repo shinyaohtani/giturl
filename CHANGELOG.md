@@ -16,8 +16,8 @@
 
 - Introduced Rubocop-performance [\#24](https://github.com/shinyaohtani/giturl/pull/24) ([shinyaohtani](https://github.com/shinyaohtani))
 
-**other topic
-- Create PR [\#794](https://github.com/github-changelog-generator/github-changelog-generator/pull/794) about github_changelog_generator on which giturl depends
+**Other related topic:**
+- Created PR [\#794](https://github.com/github-changelog-generator/github-changelog-generator/pull/794) about github_changelog_generator on which giturl depends
 
 ## [v1.3.0](https://github.com/shinyaohtani/giturl/tree/v1.3.0) (2020-04-08)
 
