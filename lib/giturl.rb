@@ -41,7 +41,7 @@ module Giturl
       remote_origin_url = `git -C #{path} config --get remote.origin.url`.chomp
 
       # remote_origin_url:  git@github.com:shinyaohtani/giturl.git
-      baseurl = remote_origin_url.gsub(/:/, '/').gsub(/^.*@/, 'https://').gsub(/\.git$/, '')
+      baseurl = remote_origin_url.tr(':', '/').gsub(/^.*@/, 'https://').gsub(/\.git$/, '')
       # gitdir_branch: feature/#1_user_named_branch
       encoded_branch = gitdir_branch.split('/').map { |e| ERB::Util.url_encode(e) }.join('/')
 

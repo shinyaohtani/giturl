@@ -16,7 +16,7 @@ module Giturl
       OptionParser.new do |opts|
         opts = define_options(opts)
         opts.parse!(ARGV, into: @params)
-        @params[:open] = true if @params.keys.include?(:app)
+        @params[:open] = true if @params.key?(:app)
       end
     end
 
