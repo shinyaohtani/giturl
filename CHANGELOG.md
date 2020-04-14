@@ -1,5 +1,24 @@
 # Changelog
 
+## [v1.3.1](https://github.com/shinyaohtani/giturl/tree/v1.3.1) (2020-04-14)
+
+[Full Changelog](https://github.com/shinyaohtani/giturl/compare/v1.3.0...v1.3.1)
+
+**Summary:**
+
+- No changes for users are included.
+
+**Closed issues:**
+
+- Introduce Rubocop-performance for readability [\#23](https://github.com/shinyaohtani/giturl/issues/23)
+
+**Merged pull requests:**
+
+- Introduced Rubocop-performance [\#24](https://github.com/shinyaohtani/giturl/pull/24) ([shinyaohtani](https://github.com/shinyaohtani))
+
+**other topic
+- Create PR [\#794](https://github.com/github-changelog-generator/github-changelog-generator/pull/794) about github_changelog_generator on which giturl depends
+
 ## [v1.3.0](https://github.com/shinyaohtani/giturl/tree/v1.3.0) (2020-04-08)
 
 [Full Changelog](https://github.com/shinyaohtani/giturl/compare/v1.2.1...v1.3.0)
@@ -12,8 +31,6 @@
 
 - Feature/\#2 support windows linux [\#17](https://github.com/shinyaohtani/giturl/pull/17) ([shinyaohtani](https://github.com/shinyaohtani))
 - fixed an Abc warning from rubocop [\#16](https://github.com/shinyaohtani/giturl/pull/16) ([shinyaohtani](https://github.com/shinyaohtani))
-
-# Changelog
 
 ## [v1.2.1](https://github.com/shinyaohtani/giturl/tree/v1.2.1) (2020-03-27)
 
