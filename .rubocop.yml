@@ -19,6 +19,9 @@ Layout/EndAlignment:
   EnforcedStyleAlignWith: start_of_line
   AutoCorrect: true
 
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+
 Layout/LineLength:
   Enabled: true
   AutoCorrect: false
@@ -38,6 +41,9 @@ Metrics/BlockLength:
 Metrics/MethodLength:
   Enabled: true
   Max: 30
+
+Style/ExponentialNotation:
+  Enabled: true
 
 Style/HashEachMethods:
   Enabled: true
