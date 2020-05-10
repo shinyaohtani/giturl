@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Giturl
-  VERSION = '1.3.1'
+  VERSION = '1.3.2'
   DESCRIPTION = <<~DESC
     A tiny helper for accessing GitHub web pages corresponding to local
     working directories.
