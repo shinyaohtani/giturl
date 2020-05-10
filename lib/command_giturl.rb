@@ -51,9 +51,7 @@ module Giturl
       opts.banner = <<~BANNER
 
         #{opts.ver}
-        A tiny utility that displays and opens GitHub URLs for your local directory.
-          visit: https://github.com/shinyaohtani/giturl
-
+        #{DESCRIPTION}
         Usage: #{opts.program_name} [options] [dirs]
          [dirs]:
            Target directories. Omit this when you only specify "."

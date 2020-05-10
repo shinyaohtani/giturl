@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-lib = File.expand_path('lib', __dir__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'giturl/version'
+require_relative 'lib/giturl/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'giturl'
@@ -10,27 +8,25 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Shinya Ohtani (shinyaohtani@github)']
   spec.email         = ['shinya_ohtani@yahoo.co.jp']
 
-  spec.homepage      = 'https://github.com/shinyaohtani/giturl/blob/master/README.md'
-  spec.license       = 'MIT'
   spec.summary       = 'Show or open GitHub URL for your local directory'
-  spec.description   = <<~DESCRIPTION
-    Show or open GitHub URL for your local directory.
-    You can use giturl to display the URL corresponding to the git-managed directory given as an argument, and you can open the URL directly in your browser if needed.
-  DESCRIPTION
+  spec.description   = Giturl::DESCRIPTION
+  spec.homepage      = Giturl::REPOSITORY_URL + '/blob/master/README.md'
+  spec.license       = 'MIT'
+  spec.required_ruby_version = Gem::Requirement.new('>= 2.3.0')
 
-  #:spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
+  spec.metadata['allowed_push_host'] = 'https://rubygems.org'
 
   spec.metadata['homepage_uri'] = spec.homepage
-  spec.metadata['source_code_uri'] = 'https://github.com/shinyaohtani/giturl'
-  spec.metadata['changelog_uri'] = 'https://github.com/shinyaohtani/giturl/blob/master/CHANGELOG.md'
+  spec.metadata['source_code_uri'] = Giturl::REPOSITORY_URL
+  spec.metadata['changelog_uri'] = Giturl::REPOSITORY_URL + '/blob/master/CHANGELOG.md'
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
   spec.files = Dir.chdir(File.expand_path(__dir__)) do
     `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   end
-  spec.bindir        = 'bin'
-  spec.executables   = ['giturl']
+  spec.bindir        = 'exe'
+  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
   spec.add_runtime_dependency 'launchy', '>= 2.5.0'
