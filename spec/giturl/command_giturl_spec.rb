@@ -28,7 +28,7 @@ RSpec.describe Giturl::CommandGiturl do
 
     context 'when git-managed directory was specified' do
       let(:general_work) { File.expand_path('../../test/', __dir__) }
-      let(:test_name) { Time.now.to_s.tr(' ', '_').delete(':') + '-' + SecureRandom.alphanumeric(4) }
+      let(:test_name) { "#{Time.now.to_s.tr(' ', '_').delete(':')}-#{SecureRandom.alphanumeric(4)}" }
       let(:repository) { 'git@github.com:shinyaohtani/giturl.git' }
       let(:repo_url) { 'https://github.com/shinyaohtani/giturl/' }
       let(:test_branch) { "test/#3_SampleRepo/\\\"-'_\"'!'\"-<>()" }
@@ -44,31 +44,31 @@ RSpec.describe Giturl::CommandGiturl do
       end
 
       it 'outputs github URL for giturl on testing branch' do
-        top_url = repo_url + 'tree/test/%233_SampleRepo/%22-%27_%21-%3C%3E%28%29/'
+        top_url = "#{repo_url}tree/test/%233_SampleRepo/%22-%27_%21-%3C%3E%28%29/"
         expect(`bundle exec giturl #{general_work}/#{test_name}/giturl`.chomp).to eq top_url
       end
 
       it 'outputs github URL for giturl under lib' do
-        lib_url = repo_url + 'tree/test/%233_SampleRepo/%22-%27_%21-%3C%3E%28%29/lib/'
+        lib_url = "#{repo_url}tree/test/%233_SampleRepo/%22-%27_%21-%3C%3E%28%29/lib/"
         expect(`bundle exec giturl #{general_work}/#{test_name}/giturl/lib/`.chomp).to eq lib_url
       end
 
       it 'outputs plural URLs' do
-        top_url = repo_url + 'tree/test/%233_SampleRepo/%22-%27_%21-%3C%3E%28%29/'
-        lib_url = repo_url + 'tree/test/%233_SampleRepo/%22-%27_%21-%3C%3E%28%29/lib/'
+        top_url = "#{repo_url}tree/test/%233_SampleRepo/%22-%27_%21-%3C%3E%28%29/"
+        lib_url = "#{repo_url}tree/test/%233_SampleRepo/%22-%27_%21-%3C%3E%28%29/lib/"
         top_dir = "#{general_work}/#{test_name}/giturl"
         lib_dir = "#{general_work}/#{test_name}/giturl/lib"
         expect(`bundle exec giturl #{top_dir} #{lib_dir}`.chomp).to eq "#{top_url}\n#{lib_url}"
       end
 
       it 'outputs github URL for current directory' do
-        lib_url = repo_url + 'tree/test/%233_SampleRepo/%22-%27_%21-%3C%3E%28%29/lib/'
+        lib_url = "#{repo_url}tree/test/%233_SampleRepo/%22-%27_%21-%3C%3E%28%29/lib/"
         lib_dir = "#{general_work}/#{test_name}/giturl/lib"
         expect(`bundle exec \'(cd #{lib_dir} > /dev/null && giturl .)\'`.chomp).to eq lib_url
       end
 
       it 'outputs github URL for current directory without being specified dirs' do
-        lib_url = repo_url + 'tree/test/%233_SampleRepo/%22-%27_%21-%3C%3E%28%29/lib/'
+        lib_url = "#{repo_url}tree/test/%233_SampleRepo/%22-%27_%21-%3C%3E%28%29/lib/"
         lib_dir = "#{general_work}/#{test_name}/giturl/lib"
         expect(`bundle exec \'(cd #{lib_dir} > /dev/null && giturl)\'`.chomp).to eq lib_url
       end
