@@ -1,5 +1,16 @@
 # Changelog
 
+## [v1.3.4](https://github.com/shinyaohtani/giturl/tree/v1.3.4 (2024-02-24)
+
+[Full Changelog](https://github.com/shinyaohtani/giturl/compare/v1.3.3...v1.3.4)
+
+- No changes in behavior
+  - code refactoring only.
+
+**Closed issues:**
+
+- none
+
 ## [v1.3.3](https://github.com/shinyaohtani/giturl/tree/v1.3.3) (2024-02-24)
 
 [Full Changelog](https://github.com/shinyaohtani/giturl/compare/v1.3.2...v1.3.3)
