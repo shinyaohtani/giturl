@@ -17,11 +17,11 @@ RSpec.describe Giturl::Giturl do
 
   context 'when git-managed directory was specified' do
     let(:general_work) { File.expand_path('../../test/', __dir__) }
-    let(:test_name) { Time.now.to_s.tr(' ', '_').delete(':') + '-' + SecureRandom.alphanumeric(4) }
+    let(:test_name) { "#{Time.now.to_s.tr(' ', '_').delete(':')}-#{SecureRandom.alphanumeric(4)}" }
     let(:repository) { 'git@github.com:shinyaohtani/giturl.git' }
     let(:repo_url) { 'https://github.com/shinyaohtani/giturl/' }
     let(:test_branch) { "test/#3_SampleRepo/\\\"-'_\"'!'\"-<>()" }
-    let(:top_url) { repo_url + 'tree/test/%233_SampleRepo/%22-%27_%21-%3C%3E%28%29/' }
+    let(:top_url) { "#{repo_url}tree/test/%233_SampleRepo/%22-%27_%21-%3C%3E%28%29/" }
 
     before do
       system("mkdir -p #{general_work}/#{test_name}")
