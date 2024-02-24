@@ -3,7 +3,7 @@
 
 ## What is giturl?
 
-`giturl`: A simple navigation tool for GitHub pages from local git-cloned directories Working deep in a git-cloned project and need to view its GitHub page? `giturl` simplifies this for you. A single command unveils your repository's URL. Want more? It also opens your browser and goes straight to the page -- no extra steps needed. `giturl` streamlines your workflow, merging simplicity with sophistication.
+`giturl`: A simple navigation tool for GitHub pages from local git-cloned directories. Working deep in a git-cloned project and need to view its GitHub page? `giturl` simplifies this for you. A single command unveils your repository's URL. Want more? It also opens your browser and goes straight to the page -- no extra steps needed. `giturl` streamlines your workflow, merging simplicity with sophistication.
 
 You can use `giturl` like:
 
