@@ -3,15 +3,13 @@
 module Giturl
   VERSION = '1.3.2'
   DESCRIPTION = <<~DESC
-    A tiny helper for accessing GitHub web pages corresponding to local
-    working directories.
+    giturl: A simple navigation tool for GitHub pages from local git-cloned directories
 
-    Have you ever wanted to access a GitHub web page while working on
-    a git-cloned local directory?
-    You can use 'giturl' to display the URL corresponding to the git-managed
-    directory given as an argument. And furthermore, if you want to access
-    the URL immediately with your browser, 'giturl' opens your browser and
-    automatically accesses the URL without your any operation on the browser.
+    Working deep in a git-cloned project and need to view its GitHub page?
+    'giturl' simplifies this for you. A single command unveils your repository's URL.
+    Want more? It also opens your browser and goes straight to the page --
+    no extra steps needed.
+    'giturl' streamlines your workflow, merging simplicity with sophistication.
   DESC
   REPOSITORY_URL = 'https://github.com/shinyaohtani/giturl'
 end
