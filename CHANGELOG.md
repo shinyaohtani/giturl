@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.3.5](https://github.com/shinyaohtani/giturl/tree/v1.3.5) (2026-09-03)
+
+[Full Changelog](https://github.com/shinyaohtani/giturl/compare/v1.3.4...v1.3.5)
+
+**Merged pull requests:**
+
+- Fix root-dir bug, make specs hermetic, add CI, update all deps to latest [\#33](https://github.com/shinyaohtani/giturl/pull/33) ([shinyaohtani](https://github.com/shinyaohtani))
+
 ## [v1.3.4](https://github.com/shinyaohtani/giturl/tree/v1.3.4) (2024-02-24)
 
 [Full Changelog](https://github.com/shinyaohtani/giturl/compare/v1.3.3...v1.3.4)

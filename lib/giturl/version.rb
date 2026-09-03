@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Giturl
-  VERSION = '1.3.4'
+  VERSION = '1.3.5'
   DESCRIPTION = <<~DESC
     giturl: A simple navigation tool for GitHub pages from local git-cloned directories.
 
