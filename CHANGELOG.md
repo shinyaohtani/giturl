@@ -4,6 +4,17 @@
 
 [Full Changelog](https://github.com/shinyaohtani/giturl/compare/v1.3.4...v1.3.5)
 
+**Fixed bugs:**
+
+- bundle exec rubocop crashes on Ruby 4.0 \(LoadError: benchmark\) [\#36](https://github.com/shinyaohtani/giturl/issues/36)
+- rspec suite fails: fixture branch no longer exists on GitHub [\#35](https://github.com/shinyaohtani/giturl/issues/35)
+- giturl . outputs nothing at the repository root [\#34](https://github.com/shinyaohtani/giturl/issues/34)
+
+**Closed issues:**
+
+- Dependencies and Ruby version are far behind current releases [\#38](https://github.com/shinyaohtani/giturl/issues/38)
+- No CI workflow to catch regressions [\#37](https://github.com/shinyaohtani/giturl/issues/37)
+
 **Merged pull requests:**
 
 - Fix root-dir bug, make specs hermetic, add CI, update all deps to latest [\#33](https://github.com/shinyaohtani/giturl/pull/33) ([shinyaohtani](https://github.com/shinyaohtani))
