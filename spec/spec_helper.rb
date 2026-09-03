@@ -98,4 +98,6 @@ RSpec.configure do |config|
 
   Dir[File.join(File.dirname(__FILE__), '../lib/**/*.rb')].sort.each { |f| require f }
   require 'securerandom'
+
+  Dir[File.join(File.dirname(__FILE__), 'support/**/*.rb')].sort.each { |f| require f }
 end
