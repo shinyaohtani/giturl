@@ -7,12 +7,13 @@
 # General guide-line is
 #  https://github.com/rubocop-hq/ruby-style-guide
 
-require:
+plugins:
   - rubocop-performance
   - rubocop-rspec
 
 AllCops:
   TargetRubyVersion: 2.3
+  NewCops: enable
 
 Layout/EndAlignment:
   Enabled: true
@@ -36,7 +37,7 @@ Lint/StructNewOverride:
 Metrics/BlockLength:
   Enabled: true
   Max: 30
-  ExcludedMethods: ['describe', 'context']
+  AllowedMethods: ['describe', 'context']
 
 Metrics/MethodLength:
   Enabled: true
