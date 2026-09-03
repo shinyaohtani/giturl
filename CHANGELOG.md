@@ -1,8 +1,11 @@
 # Changelog
 
-## [v1.3.5](https://github.com/shinyaohtani/giturl/tree/v1.3.5) (2026-09-03)
+## [v1.3.6](https://github.com/shinyaohtani/giturl/tree/v1.3.6) (2026-09-03)
 
-[Full Changelog](https://github.com/shinyaohtani/giturl/compare/v1.3.4...v1.3.5)
+[Full Changelog](https://github.com/shinyaohtani/giturl/compare/v1.3.5...v1.3.6)
+
+- Same code as v1.3.5. Re-released solely to link the fixes below to
+  the issues that describe them, which v1.3.5 shipped without.
 
 **Fixed bugs:**
 
@@ -14,6 +17,14 @@
 
 - Dependencies and Ruby version are far behind current releases [\#38](https://github.com/shinyaohtani/giturl/issues/38)
 - No CI workflow to catch regressions [\#37](https://github.com/shinyaohtani/giturl/issues/37)
+
+## [v1.3.5](https://github.com/shinyaohtani/giturl/tree/v1.3.5) (2026-09-03)
+
+[Full Changelog](https://github.com/shinyaohtani/giturl/compare/v1.3.4...v1.3.5)
+
+- Yanked: shipped without the tracking issues linked below, so it's
+  undiscoverable what this release actually fixed. Superseded by
+  v1.3.6, which has the same code plus the corrected changelog.
 
 **Merged pull requests:**
 
