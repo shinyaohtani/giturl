@@ -3,51 +3,51 @@
 require 'tmpdir'
 require 'fileutils'
 
-# Builds a throwaway local git repository to exercise Giturl against,
-# instead of cloning a fixture branch from the real GitHub remote.
-# This keeps the spec suite hermetic: no network access, no SSH keys,
-# and no dependency on a branch continuing to exist upstream.
-module FixtureRepository
-  # @param branch [String] branch name to create, e.g. a name with symbols to test URL-encoding
-  # @param remote [String] value to set as `remote.origin.url`
-  # @param subdir [String, nil] optional subdirectory (with a file in it) to exercise path prefixes
-  # @return [String] path to the repository's working directory
-  def build_fixture_repo(branch:, remote: 'git@github.com:shinyaohtani/giturl.git', subdir: nil)
-    root = Dir.mktmpdir('giturl-spec-')
-    repo = File.join(root, 'giturl')
-    FileUtils.mkdir_p(repo)
+# A throwaway git repository for the specs to point giturl at, built locally
+# rather than cloned from the real remote. That keeps the suite hermetic: no
+# network, no SSH keys, and no branch that has to keep existing upstream.
+class FixtureRepository
+  attr_reader :path
 
-    Dir.chdir(repo) do
-      run_git('init', '-q', '.')
-      run_git('config', 'user.email', 'giturl-spec@example.com')
-      run_git('config', 'user.name', 'giturl spec')
-      run_git('checkout', '-q', '-b', branch)
-      File.write('README.md', "fixture repo for giturl specs\n")
-      if subdir
-        FileUtils.mkdir_p(subdir)
-        File.write(File.join(subdir, '.keep'), '')
-      end
-      run_git('add', '-A')
-      run_git('commit', '-q', '-m', 'initial commit')
-      run_git('remote', 'add', 'origin', remote)
-    end
-
-    repo
+  # @param branch [String] branch to check out, e.g. a symbol-heavy name to exercise encoding
+  # @param remote [String] value to record as `remote.origin.url`
+  # @param subdir [String, nil] directory to create inside the repository, to exercise path prefixes
+  def initialize(branch:, remote: 'git@github.com:shinyaohtani/giturl.git', subdir: nil)
+    @root = Dir.mktmpdir('giturl-spec-')
+    @path = File.join(@root, 'giturl')
+    FileUtils.mkdir_p(@path)
+    Dir.chdir(@path) { build(branch: branch, remote: remote, subdir: subdir) }
   end
 
-  # Removes the temp directory tree that build_fixture_repo created.
-  # @param repo [String] the path returned by build_fixture_repo
-  def cleanup_fixture_repo(repo)
-    FileUtils.rm_rf(File.dirname(repo))
+  # Deletes the temporary tree this repository lives in.
+  def remove!
+    FileUtils.rm_rf(@root)
   end
 
   private
 
-  def run_git(*args)
-    system('git', *args, exception: true)
+  # @return [void]
+  def build(branch:, remote:, subdir:)
+    git('init', '-q', '.')
+    git('config', 'user.email', 'giturl-spec@example.com')
+    git('config', 'user.name', 'giturl spec')
+    git('checkout', '-q', '-b', branch)
+    commit(subdir)
+    git('remote', 'add', 'origin', remote)
   end
-end
 
-RSpec.configure do |config|
-  config.include FixtureRepository
+  # @param subdir [String, nil] directory to include in the commit
+  def commit(subdir)
+    File.write('README.md', "fixture repo for giturl specs\n")
+    if subdir
+      FileUtils.mkdir_p(subdir)
+      File.write(File.join(subdir, '.keep'), '')
+    end
+    git('add', '-A')
+    git('commit', '-q', '-m', 'initial commit')
+  end
+
+  def git(*)
+    system('git', *, exception: true)
+  end
 end

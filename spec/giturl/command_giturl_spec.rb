@@ -30,9 +30,10 @@ RSpec.describe Giturl::CommandGiturl do
       let(:repo_url) { 'https://github.com/shinyaohtani/giturl/' }
       let(:test_branch) { "test/#3_SampleRepo/\"-'_!-<>()" }
       let(:encoded_branch) { 'test/%233_SampleRepo/%22-%27_%21-%3C%3E%28%29' }
-      let(:repo_path) { build_fixture_repo(branch: test_branch, subdir: 'lib') }
+      let(:repository) { FixtureRepository.new(branch: test_branch, subdir: 'lib') }
+      let(:repo_path) { repository.path }
 
-      after { cleanup_fixture_repo(repo_path) }
+      after { repository.remove! }
 
       it 'outputs github URL for giturl on testing branch' do
         top_url = "#{repo_url}tree/#{encoded_branch}/"

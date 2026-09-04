@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.description   = Giturl::DESCRIPTION
   spec.homepage      = "#{Giturl::REPOSITORY_URL}/blob/master/README.md"
   spec.license       = 'MIT'
-  spec.required_ruby_version = Gem::Requirement.new('>= 2.3.0')
+  spec.required_ruby_version = Gem::Requirement.new('>= 3.2.0')
 
   spec.metadata['allowed_push_host'] = 'https://rubygems.org'
 

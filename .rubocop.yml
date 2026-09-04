@@ -12,7 +12,7 @@ plugins:
   - rubocop-rspec
 
 AllCops:
-  TargetRubyVersion: 2.3
+  TargetRubyVersion: 3.2
   NewCops: enable
 
 Layout/EndAlignment:
@@ -41,7 +41,7 @@ Metrics/BlockLength:
 
 Metrics/MethodLength:
   Enabled: true
-  Max: 30
+  Max: 25
 
 Style/ExponentialNotation:
   Enabled: true

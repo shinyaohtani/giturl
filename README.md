@@ -96,6 +96,13 @@ Or add `giturl` to your application's Gemfile and run `bundle` command:
 gem 'giturl'
 ```
 
+### Ruby version
+
+`giturl` requires **Ruby 3.2 or later**. On an older Ruby, install the last
+release that supported Ruby 2.x:
+
+    $ gem install giturl -v 1.3.6
+
 ## Giturl module
 
 `Giturl` is also a module, so you can get urls from your ruby code.
