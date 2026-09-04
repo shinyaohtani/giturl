@@ -1,5 +1,23 @@
 # Changelog
 
+## [v1.4.0](https://github.com/shinyaohtani/giturl/tree/v1.4.0) (2026-09-04)
+
+[Full Changelog](https://github.com/shinyaohtani/giturl/compare/v1.3.6...v1.4.0)
+
+- **Ruby 3.2 or later is now required.**
+  - On Ruby 2.x, install the last release that supported it: `gem install giturl -v 1.3.6`
+- No changes in behavior
+  - `Giturl::Giturl.url` / `.convert` / `.git_managed?` keep their signatures and results.
+  - The code behind them was reorganized into classes that each hold one responsibility.
+
+**Closed issues:**
+
+- Refactor into noun classes: behavior lives in class methods, responsibilities are mixed [\#43](https://github.com/shinyaohtani/giturl/issues/43)
+
+**Merged pull requests:**
+
+- Refactor into noun classes per the Ruby refactoring standard [\#42](https://github.com/shinyaohtani/giturl/pull/42) ([shinyaohtani](https://github.com/shinyaohtani))
+
 ## [v1.3.6](https://github.com/shinyaohtani/giturl/tree/v1.3.6) (2026-09-03)
 
 [Full Changelog](https://github.com/shinyaohtani/giturl/compare/v1.3.5...v1.3.6)
