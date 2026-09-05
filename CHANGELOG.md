@@ -1,9 +1,32 @@
 # Changelog
 
+## [v1.4.1](https://github.com/shinyaohtani/giturl/tree/v1.4.1) (2026-09-05)
+
+[Full Changelog](https://github.com/shinyaohtani/giturl/compare/v1.4.0...v1.4.1)
+
+- The first release on RubyGems to require Ruby 3.2, since v1.4.0 was
+  tagged but never pushed there. Everything v1.4.0 describes applies
+  here too, so read its entry below as part of this release.
+- Directories whose name contains a space or a shell metacharacter now
+  work, and remotes written as a URL (`https://`, `ssh://`, `git://`)
+  now convert correctly.
+
+**Fixed bugs:**
+
+- https:// remotes produce a malformed URL \(https///github.com/...\) [\#41](https://github.com/shinyaohtani/giturl/issues/41)
+- Paths containing spaces or shell metacharacters are not escaped [\#40](https://github.com/shinyaohtani/giturl/issues/40)
+
+**Merged pull requests:**
+
+- Run git without a shell, and parse remotes properly [\#44](https://github.com/shinyaohtani/giturl/pull/44) ([shinyaohtani](https://github.com/shinyaohtani))
+
 ## [v1.4.0](https://github.com/shinyaohtani/giturl/tree/v1.4.0) (2026-09-04)
 
 [Full Changelog](https://github.com/shinyaohtani/giturl/compare/v1.3.6...v1.4.0)
 
+- Tagged but never published to RubyGems: two bugs were found before it
+  was pushed, so v1.4.1 went out in its place with the same changes plus
+  those fixes. `gem install giturl` never sees this version.
 - **Ruby 3.2 or later is now required.**
   - On Ruby 2.x, install the last release that supported it: `gem install giturl -v 1.3.6`
 - No changes in behavior
