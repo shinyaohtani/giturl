@@ -54,9 +54,12 @@ module Giturl
       here.complete? ? here : nil
     end
 
+    # git is run without a shell, so a directory name is never split on its
+    # spaces nor read for metacharacters.
+    #
     # @return [Array(String, Boolean)] the command's output and whether it succeeded
     def capture(*args)
-      output = `git -C #{@path} #{args.join(' ')}`.chomp
+      output = IO.popen(['git', '-C', @path, *args], &:read).chomp
       [output, Process.last_status.success?]
     end
   end

@@ -2,39 +2,47 @@
 
 module Giturl
   # The URL of a git remote, as `remote.origin.url` reports it, and the https
-  # form of the same place. An scp-style URL may name a Host alias from
-  # ~/.ssh/config (git@github.com-work:owner/repo.git) rather than a real
-  # hostname, so the alias is resolved through ssh before the URL is rewritten.
+  # page that serves the same repository.
+  #
+  # A remote is written either as an scp-style address
+  # (git@github.com:owner/repo.git) or as a URL carrying a scheme
+  # (https://, ssh://, git://). Only the scp-style form can name a Host alias
+  # from ~/.ssh/config (git@github.com-work:owner/repo.git) in place of a real
+  # hostname, so that is the only form ssh is asked about.
   class RemoteUrl
-    ALIAS = /@(.*?):/
+    SCHEMED = %r{\A[a-z][a-z0-9+.-]*://(?:[^@/]*@)?(?<host>[^/:]+)(?::\d+)?/(?<path>.*)\z}i
+    SCP = %r{\A(?:[^@/]+@)?(?<host>[^/:]+):(?<path>.*)\z}
 
     def initialize(raw)
       @raw = raw
     end
 
-    # @return [String] the https form of this remote
+    # Anything neither form recognizes is handed back untouched: it names no
+    # host, so there is no page to point at.
+    #
+    # @return [String] the https URL of the page this remote is served from
     def https
-      resolved.tr(':', '/').gsub(/^.*@/, 'https://').gsub(/\.git$/, '')
+      schemed = SCHEMED.match(@raw)
+      return page(schemed[:host], schemed[:path]) if schemed
+
+      scp = SCP.match(@raw)
+      return @raw unless scp
+
+      page(hostname(scp[:host]) || scp[:host], scp[:path])
     end
 
     private
 
-    # @return [String] the raw URL with any Host alias replaced by the real hostname
-    def resolved
-      matched = @raw.match(ALIAS)
-      return @raw unless matched
-
-      host_alias = matched[1]
-      real = hostname(host_alias)
-      return @raw if real.nil? || real == host_alias
-
-      @raw.sub(host_alias, real)
+    # @return [String] https://<host>/<path>, without the .git git clones carry
+    def page(host, path)
+      "https://#{host}/#{path.delete_suffix('.git')}"
     end
 
     # @param host_alias [String] a Host entry from ~/.ssh/config
     # @return [String, nil] the HostName ssh resolves it to, nil if ssh says nothing
     def hostname(host_alias)
-      line = `ssh -G #{host_alias} 2>#{File::NULL}`.lines.find { |candidate| candidate =~ /^hostname / }
+      output = IO.popen(['ssh', '-G', host_alias], err: File::NULL, &:read)
+      line = output.lines.find { |candidate| candidate =~ /^hostname / }
       return nil unless line
 
       line.split[1]

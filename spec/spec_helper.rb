@@ -97,7 +97,7 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 
   Dir[File.join(File.dirname(__FILE__), '../lib/**/*.rb')].each { |f| require f }
-  require 'securerandom'
+  require 'open3'
 
   Dir[File.join(File.dirname(__FILE__), 'support/**/*.rb')].each { |f| require f }
 end
