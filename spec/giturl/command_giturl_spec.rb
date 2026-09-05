@@ -63,5 +63,18 @@ RSpec.describe Giturl::CommandGiturl do
         expect(`bundle exec \'(cd #{lib_dir} > /dev/null && giturl)\'`.chomp).to eq lib_url
       end
     end
+
+    # Run without a shell of our own, so that what is tested is giturl handling
+    # the directory name rather than this spec quoting it.
+    context 'when the directory name contains a space and a quote' do
+      let(:repository) { FixtureRepository.new(branch: 'main', name: "it's my repo") }
+
+      after { repository.remove! }
+
+      it 'outputs github URL' do
+        out, = Open3.capture2('bundle', 'exec', 'giturl', repository.path)
+        expect(out.chomp).to eq 'https://github.com/shinyaohtani/giturl/tree/main/'
+      end
+    end
   end
 end

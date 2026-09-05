@@ -12,9 +12,10 @@ class FixtureRepository
   # @param branch [String] branch to check out, e.g. a symbol-heavy name to exercise encoding
   # @param remote [String] value to record as `remote.origin.url`
   # @param subdir [String, nil] directory to create inside the repository, to exercise path prefixes
-  def initialize(branch:, remote: 'git@github.com:shinyaohtani/giturl.git', subdir: nil)
+  # @param name [String] the repository's own directory name, e.g. one with a space in it
+  def initialize(branch:, remote: 'git@github.com:shinyaohtani/giturl.git', subdir: nil, name: 'giturl')
     @root = Dir.mktmpdir('giturl-spec-')
-    @path = File.join(@root, 'giturl')
+    @path = File.join(@root, name)
     FileUtils.mkdir_p(@path)
     Dir.chdir(@path) { build(branch: branch, remote: remote, subdir: subdir) }
   end
